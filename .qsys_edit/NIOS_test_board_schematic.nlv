@@ -1,0 +1,34 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst NIOS_test_board.sdram_controller -pg 1 -lvl 2 -y 950
+preplace inst NIOS_test_board.clk -pg 1 -lvl 1 -y 870
+preplace inst NIOS_test_board.uart -pg 1 -lvl 2 -y 530
+preplace inst NIOS_test_board.pll -pg 1 -lvl 2 -y 870
+preplace inst NIOS_test_board.pio_led -pg 1 -lvl 2 -y 650
+preplace inst NIOS_test_board.onchip_flash -pg 1 -lvl 2 -y 30
+preplace inst NIOS_test_board.nios2.cpu -pg 1
+preplace inst NIOS_test_board.spi_g_sensor -pg 1 -lvl 2 -y 410
+preplace inst NIOS_test_board.pio_mode -pg 1 -lvl 2 -y 750
+preplace inst NIOS_test_board.sysid -pg 1 -lvl 2 -y 330
+preplace inst NIOS_test_board.spi_flash -pg 1 -lvl 2 -y 130
+preplace inst NIOS_test_board.nios2 -pg 1 -lvl 1 -y 90
+preplace inst NIOS_test_board.onchip_ram -pg 1 -lvl 2 -y 250
+preplace inst NIOS_test_board.nios2.reset_bridge -pg 1
+preplace inst NIOS_test_board.nios2.clock_bridge -pg 1
+preplace inst NIOS_test_board -pg 1 -lvl 1 -y 40 -regy -20
+preplace netloc EXPORT<net_container>NIOS_test_board</net_container>(SLAVE)NIOS_test_board.pio_mode,(SLAVE)pio_mode.external_connection) 1 0 2 NJ 780 NJ
+preplace netloc EXPORT<net_container>NIOS_test_board</net_container>(SLAVE)NIOS_test_board.clk_in,(SLAVE)clk.clk_in) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>NIOS_test_board</net_container>(SLAVE)spi_flash.irq,(SLAVE)uart.irq,(SLAVE)spi_g_sensor.irq,(MASTER)nios2.irq) 1 1 1 540
+preplace netloc EXPORT<net_container>NIOS_test_board</net_container>(SLAVE)NIOS_test_board.sdram,(SLAVE)sdram_controller.wire) 1 0 2 NJ 1020 NJ
+preplace netloc POINT_TO_POINT<net_container>NIOS_test_board</net_container>(SLAVE)pll.inclk_interface,(MASTER)clk.clk) 1 1 1 N
+preplace netloc EXPORT<net_container>NIOS_test_board</net_container>(SLAVE)spi_flash.external,(SLAVE)NIOS_test_board.spi_flash) 1 0 2 NJ 230 NJ
+preplace netloc EXPORT<net_container>NIOS_test_board</net_container>(MASTER)NIOS_test_board.sdram_clk,(MASTER)pll.c1) 1 2 1 N
+preplace netloc INTERCONNECT<net_container>NIOS_test_board</net_container>(SLAVE)sysid.reset,(SLAVE)sdram_controller.reset,(SLAVE)onchip_flash.nreset,(SLAVE)pll.inclk_interface_reset,(SLAVE)pio_led.reset,(SLAVE)pio_mode.reset,(SLAVE)spi_g_sensor.reset,(MASTER)nios2.debug_reset_request,(SLAVE)uart.reset,(SLAVE)onchip_ram.reset1,(SLAVE)spi_flash.reset,(SLAVE)nios2.reset,(MASTER)clk.clk_reset) 1 0 2 140 840 520
+preplace netloc FAN_OUT<net_container>NIOS_test_board</net_container>(SLAVE)pio_led.clk,(SLAVE)onchip_ram.clk1,(SLAVE)spi_g_sensor.clk,(SLAVE)spi_flash.clk,(SLAVE)nios2.clk,(SLAVE)sysid.clk,(SLAVE)sdram_controller.clk,(SLAVE)pio_mode.clk,(MASTER)pll.c0,(SLAVE)uart.clk,(SLAVE)onchip_flash.clk) 1 0 3 100 800 560 860 820
+preplace netloc EXPORT<net_container>NIOS_test_board</net_container>(SLAVE)NIOS_test_board.uart,(SLAVE)uart.external_connection) 1 0 2 NJ 560 NJ
+preplace netloc INTERCONNECT<net_container>NIOS_test_board</net_container>(SLAVE)onchip_ram.s1,(MASTER)nios2.instruction_master,(SLAVE)pll.pll_slave,(MASTER)nios2.data_master,(SLAVE)pio_mode.s1,(SLAVE)sysid.control_slave,(SLAVE)spi_flash.spi_control_port,(SLAVE)sdram_controller.s1,(SLAVE)onchip_flash.csr,(SLAVE)pio_led.s1,(SLAVE)onchip_flash.data,(SLAVE)spi_g_sensor.spi_control_port,(SLAVE)nios2.debug_mem_slave,(SLAVE)uart.s1) 1 0 2 120 820 500
+preplace netloc EXPORT<net_container>NIOS_test_board</net_container>(SLAVE)spi_g_sensor.external,(SLAVE)NIOS_test_board.spi_g_sen) 1 0 2 NJ 440 NJ
+preplace netloc EXPORT<net_container>NIOS_test_board</net_container>(SLAVE)NIOS_test_board.pio_led,(SLAVE)pio_led.external_connection) 1 0 2 NJ 680 NJ
+preplace netloc EXPORT<net_container>NIOS_test_board</net_container>(SLAVE)clk.clk_in_reset,(SLAVE)NIOS_test_board.reset) 1 0 1 NJ
+levelinfo -pg 1 0 70 930
+levelinfo -hier NIOS_test_board 80 260 630 840
